@@ -1,0 +1,54 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.booked { background-color: #3cbde1; }
+.not-booked { background-color: #f5f5f500; }
+
+
+.form-container {
+	max-width: 500px;
+	margin: 10px auto;
+	padding: 1em;
+	border: 1px solid #ccc;
+	border-radius: 1em;
+	background-color: #f9f9f9;
+  }
+
+  .form-group {
+	margin-bottom: 1em;
+  }
+
+  .form-label {
+	display: block;
+	margin-bottom: .5em;
+	color: #333333;
+  }
+
+  .form-input,
+  .form-textarea {
+	width: 100%;
+	padding: .5em;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+  }
+
+  .form-button {
+	padding: 0.7em;
+	color: #fff;
+	background-color: #eea84d;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	font-size: 1em;
+	width: 100%;
+  }
+
+  .form-button:hover {
+	background-color: #e0a149;
+  }
+
+  th {
+	background-color: #ffffff;
+  }

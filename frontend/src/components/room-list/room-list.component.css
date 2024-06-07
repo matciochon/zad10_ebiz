@@ -1,0 +1,102 @@
+.content {
+  background-color: #f2f6f3;
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+  padding-top: 40px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  min-height: 1000px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+tr
+{
+    cursor: pointer;
+}
+
+.favorites-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+table {
+  width: 100%;
+  margin-top: 20px;
+}
+
+th, td {
+  text-align: center;
+  padding: 12px;
+}
+
+th {
+  background-color: lightgray;
+  cursor: pointer;
+}
+
+tr:hover {
+  background-color: #a5a7a6;
+}
+
+.cell-align {
+  text-align: left;
+  justify-content: flex-start;
+}
+
+.form-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.filter-form {
+  margin-bottom: 20px;
+  width: 80%;
+}
+
+.filter-card {
+  padding: 20px;
+  width: 100%;
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+}.styled-table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  min-width: 400px;
+}
+
+table {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.styled-table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  min-width: 400px;
+}
+
+.styled-table thead tr {
+  text-align: left;
+}
+
+.room-name-filter {
+  margin-left: 1rem;
+  width: 24.5rem;
+}
+
+.room-size-filter {
+  margin-left: 1rem;
+}

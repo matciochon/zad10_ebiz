@@ -1,0 +1,73 @@
+<app-top-menu></app-top-menu>
+<div class="content">
+    <div class="sala_info">
+        <h2>Sala: {{ data.name }}</h2>
+        <p>ID: {{ roomId }}</p>
+        <p>Liczba miejsc: {{ data.capacity }}</p>
+    </div>
+    <table class="table-centered">
+        <th>Zajętość sali</th>
+        <tr class="chart-row">
+            <td class="chart-col pointer" (click)="addWeeks(-1)">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-arrow-left" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8" />
+                </svg>
+            </td>
+            <td *ngFor="let day of chartTable[0]" class="chart-col bold">
+                <p>{{getDateToDisplay(day.date)}}</p>
+                <p>{{getWeekDay(day.day)}}</p>
+            </td>
+            <td class="chart-col no-border pointer" (click)="addWeeks(1)">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-arrow-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8" />
+                </svg>
+            </td>
+        </tr>
+        <tr *ngFor="let day of chartTable" class="chart-row">
+            <td class="chart-col bold">
+                <p>{{day[0].hour}}:00</p>
+            </td>
+            <td *ngFor="let hour of day"  (pointerup)="mouseUp(hour)" (pointerdown)="mouseDown(hour)" class="prevent-select"
+                [ngClass]="{'chart-col clickable': true, 'usos': hour.usos, 'isChosen_true': hour.isChosen === true, 'isChosen_false': hour.isChosen === false}"
+                (mouseenter)="mouseEnter(hour)"
+                (mouseleave)="mouseLeave(hour)">
+                <div >
+                    <p *ngIf="!hour.isChosen" style="height: 100%;">
+                        {{showHour(hour)}}</p>
+
+                    <div *ngIf="hour.isChosen" class="reservationName">{{hour.name}}
+                        <span *ngIf="!hour.usos" class="reservationLecturer">{{hour.lecturer}}</span>
+                    </div>
+                </div>
+            </td>
+            <td class="chart-col no-border"></td>
+        </tr>
+    </table>
+
+    <form (ngSubmit)="sendEmail()" #emailForm="ngForm" class="form-container">
+        <div class="form-group">
+            <label for="subject" class="form-label">Temat:</label>
+            <input type="text" id="subject" name="subject" [(ngModel)]="email.subject" required class="form-input">
+        </div>
+        <div class="form-group">
+            <label for="body" class="form-label">Treść wiadomości:</label>
+            <textarea id="body" name="body" [(ngModel)]="email.body" rows="10" cols="30" required class="form-textarea"></textarea>
+        </div>
+        <div class="form-group">
+            <input type="checkbox" id="useCustomEmail" name="useCustomEmail" [(ngModel)]="useCustomEmail" (change)="onSendToAdminChange()" class="form-checkbox">
+            <label for="useCustomEmail">Wyślij maila na inny adres email</label>
+        </div>
+        <div *ngIf="useCustomEmail">
+            <div class="form-group">
+                <label for="customEmail" class="form-label">Adres e-mail:</label>
+                <input type="email" id="customEmail" name="customEmail" [(ngModel)]="customEmail" class="form-input">
+            </div>
+        </div>
+        <button type="submit" class="form-button">Wyślij email</button>
+    </form>
+    
+</div>

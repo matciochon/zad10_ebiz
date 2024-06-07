@@ -1,0 +1,110 @@
+.content {
+    background-color: #f2f6f3; 
+    width: 80%; 
+    min-height: 1000px;
+    margin: 0 10% 0 10%;
+}
+
+.sala_info {
+    margin: 0;
+    padding: 20px;
+    padding-left: 50px;
+}
+
+h3 {
+    margin: 0;
+    padding: 0;
+}
+
+.chart-row {
+    text-align: center;
+    border-bottom: solid 1px;
+    border-color: #ababab;
+    margin: auto;
+    width: 120px; 
+}
+
+.chart-col {
+    width: 120px;
+    border-right: solid 1px;
+    border-color: #ababab;
+    text-align: center;
+}
+
+.chart-col.usos {
+    background-color: yellow;
+  }
+
+.table-centered {
+    margin: auto;
+    display: table;
+    border-spacing: 0px;
+    border-collapse: collapse;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.clickable:hover {
+    cursor: pointer;
+    background-color: rgb(255, 252, 232);
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.no-border {
+    border: none;
+}
+
+.contact-menu{
+    padding: 30px;
+}
+
+.isChosen_true {
+    background-color: #45a049;
+    cursor: not-allowed !important;
+}
+
+.prevent-select {
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+  }
+
+.reservationName {
+position: relative;
+display: inline-block;
+}
+
+.reservationName .reservationLecturer {
+visibility: hidden;
+background-color: black;
+color: #fff;
+text-align: center;
+border-radius: 6px;
+padding: 5px 10px;
+position: absolute;
+z-index: 1;
+top: 100%;
+left: 50%;
+transform: translateX(-50%);
+white-space: nowrap;
+}
+
+.reservationName .reservationLecturer::after {
+content: "";
+position: absolute;
+bottom: 100%;
+left: 50%;
+margin-left: -5px;
+border-width: 5px;
+border-style: solid;
+border-color: transparent transparent black transparent;
+}
+
+.reservationName:hover .reservationLecturer {
+visibility: visible;
+}

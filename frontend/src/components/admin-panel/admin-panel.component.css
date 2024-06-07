@@ -1,0 +1,51 @@
+.content {
+  background-color: #f2f6f3;
+  width: 90%;
+  margin: 0 auto;
+  padding: 20px;
+  padding-top: 40px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+}
+
+button {
+  margin: 10px 0;
+}
+
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+  margin-top: 20px;
+}
+
+table {
+  width: 100%;
+}
+
+th, td {
+  text-align: center;
+  padding: 12px;
+  word-wrap: break-word;
+  white-space: normal;
+}
+
+th {
+  background-color: lightgray;
+}
+
+tr:hover {
+  background-color: #f1f1f1;
+}
+
+.cell-align {
+  text-align: left;
+  justify-content: flex-start;
+}
+
+.styled-table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  min-width: 400px;
+}

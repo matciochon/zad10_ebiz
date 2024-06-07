@@ -1,0 +1,37 @@
+version: '1.0'
+
+services:
+    pzg2-database:
+        build:
+            context: ./database
+            dockerfile: Dockerfile
+        ports:
+            - "127.0.0.1:3306:3306"
+        networks:
+            - common-net
+
+    pzg2-backend:
+        build:
+            context: ./backend
+            dockerfile: Dockerfile
+        depends_on:
+            - pzg2-database
+        ports:
+            - "127.0.0.1:8080:8080"
+        networks:
+            - common-net
+
+    pzg2-frontend:
+        build:
+            context: ./frontend
+            dockerfile: Dockerfile
+        depends_on:
+            - pzg2-backend
+        ports:
+            - "127.0.0.1:80:80"
+        networks:
+            - common-net
+
+networks:
+  common-net:
+    driver: bridge

@@ -1,0 +1,54 @@
+<app-top-menu></app-top-menu>
+<div class="content">
+  <div class="filter-container">
+    <form class="example-form" >
+      <b>Filtrowanie pojemności sali:</b>
+      <mat-form-field class="full-width room-size-filter">
+        <mat-label>Minimalna pojemność sali</mat-label>
+        <input #min matInput placeholder="0">
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <mat-label>Maksymalna pojemność sali</mat-label>
+        <input #max matInput placeholder="1000">
+      </mat-form-field>
+      <div class="button-group">
+        <button mat-raised-button color="primary" (click)="addCapacityFilter()">Filtruj</button>
+        <button mat-raised-button color="warn" (click)="removeCapacityFilter()">Przywróć</button>
+      </div>
+    </form>
+    <br/>
+    <form class="example-form" >
+      <b>Filtrowanie nazwy sali:</b>
+      <mat-form-field class="full-width room-name-filter">
+        <mat-label>Nazwa sali rozpoczynająca się od</mat-label>
+        <input #name matInput placeholder="A-1-06">
+      </mat-form-field>
+      <div class="button-group">
+        <button mat-raised-button color="primary" (click)="addNameFilter()">Filtruj</button>
+        <button mat-raised-button color="warn" (click)="removeNameFilter()">Przywróć</button>
+      </div>
+    </form>
+  </div>
+  <table class="styled-table">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Nazwa</th>
+        <th (click)="sortByCapacity()" matTooltip="Sortuj pojemność sal" matTooltipPosition="above">Pojemność sali</th>
+        <th>Dodaj do ulubionych</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of data">
+        <td [routerLink]="['/room/', item.id]">{{ item.id }}</td>
+        <td [routerLink]="['/room/', item.id]">{{ item.name }}</td>
+        <td [routerLink]="['/room/', item.id]">{{ item.capacity }}</td>
+        <td>
+          <button mat-icon-button color="primary" (click)="addToFav(item)">
+            <mat-icon>add_circle</mat-icon>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

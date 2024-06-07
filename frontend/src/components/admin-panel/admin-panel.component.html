@@ -1,0 +1,41 @@
+<app-top-menu></app-top-menu>
+<div class="content">
+    <button mat-raised-button color="primary" style="float: right;" (click)="logout()">Wyloguj się</button>
+    <button mat-raised-button (click)="onSyncUsosButtonClicked()">Synchronizuj z USOS Web</button>
+    <table class="styled-table">
+        <tr>
+            <th>Id</th>
+            <th>Id pokoju</th>
+            <th>Rozpoczęcie</th>
+            <th>Zakończenie</th>
+            <th>Nazwa</th>
+            <th>Wykładowca</th>
+            <th>Adres email</th>
+            <th>Liczba uczestników</th>
+            <th>Data i godzina złożenia rezerwacji</th>
+            <th>Zaakceptuj rezerwacje</th>
+            <th>Odrzuć rezerwacje</th>
+        </tr>
+        <tr *ngFor="let item of data">
+            <td>{{ item.id }}</td>
+            <td>{{ item.room_id }}</td>
+            <td>{{ item.start }}</td>
+            <td>{{ item.end }}</td>
+            <td>{{ item.name }}</td>
+            <td>{{ item.lecturer_first_name }} {{ item.lecturer_last_name }}</td>
+            <td>{{ item.lecturer_mail }}</td>
+            <td>{{ item.participants_count }}</td>
+            <td>{{ item.reservation_datetime }}</td>
+            <td>
+              <button mat-icon-button color="primary" (click)="acceptReservation(item.id)">
+                <mat-icon>check_circle</mat-icon>
+              </button>
+            </td>
+            <td>
+              <button mat-icon-button color="warn" (click)="rejectReservation(item.id)">
+                <mat-icon>cancel</mat-icon>
+              </button>
+            </td>
+          </tr>
+    </table>
+</div>

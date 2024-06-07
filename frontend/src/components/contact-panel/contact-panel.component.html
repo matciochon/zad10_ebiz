@@ -1,0 +1,25 @@
+<app-top-menu></app-top-menu>
+<div class="content">
+    <h2>Kontakt i Pomoc</h2>
+
+    <p>Wydział Fizyki, Astronomii i Informatyki Stosowanej <br> 
+    ul. prof. Stanisława Łojasiewicza 11 <br>
+    30-348 Kraków</p>
+
+    <h3>Mapa wydziału z widocznymi salami</h3>
+    <img src="assets\A-41-A-43_Plansze_120x120_page-0001.jpg" alt="Zdjęcie wydziału z salami" width="600">
+    <img src="assets\A-41-A-43_Plansze_120x120_page-0002.jpg" alt="Zdjęcie wydziału z salami" width="600">
+    <img src="assets\A-41-A-43_Plansze_120x120_page-0003.jpg" alt="Zdjęcie wydziału z salami" width="600">
+
+    <form (ngSubmit)="sendEmail()" #emailForm="ngForm" class="form-container">
+        <div class="form-group">
+          <label for="subject" class="form-label">Temat:</label>
+          <input type="text" id="subject" name="subject" [(ngModel)]="email.subject" required class="form-input">
+        </div>
+        <div class="form-group">
+          <label for="body" class="form-label">Treść wiadomości:</label>
+          <textarea id="body" name="body" [(ngModel)]="email.body" rows="10" cols="30" required class="form-textarea"></textarea>
+        </div>
+        <button type="submit" class="form-button">Wyślij email</button>
+    </form>
+</div>

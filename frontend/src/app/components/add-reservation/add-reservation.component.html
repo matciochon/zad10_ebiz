@@ -1,0 +1,30 @@
+<b style="text-align: center; width: 100%; margin: auto; margin-bottom: 20px;">Utwórz rezerwację</b>
+<p style="margin-top: 5px;">Sala: {{data.name}}</p>
+<p>Pojemność sali: {{data.capacity}}</p>
+<p>Id sali: {{data.roomId}}</p>
+<p>Od: {{startDate}}</p>
+<p>Do: {{endDate}}</p>
+<form class="example-form" style="margin-top: 20px;" (submit)="submitForm(email.value, name.value, eventName.value, participantsCount.value)">
+    <mat-form-field class="example-full-width">
+        <mat-label>Email</mat-label>
+        <input #email type="email" matInput placeholder="">
+    </mat-form-field>
+    <br/>
+    <mat-form-field class="example-full-width">
+        <mat-label>Imie i nazwisko</mat-label>
+        <input #name matInput placeholder="">
+    </mat-form-field>
+    <br/>
+    <mat-form-field class="example-full-width">
+        <mat-label>Nazwa zajęć</mat-label>
+        <input #eventName matInput placeholder="">
+    </mat-form-field>
+    <br/>
+    <mat-form-field class="example-full-width">
+        <mat-label>Liczba uczestników</mat-label>
+        <input #participantsCount type="number" matInput placeholder="">
+    </mat-form-field>
+    <br/>
+    <button mat-button style="padding: 5px; margin: 5px; cursor: pointer;" type="submit" [mat-dialog-close]="true">Wyślij prośbę</button>
+    <button mat-button style="padding: 5px; margin: 5px; cursor: pointer;" [mat-dialog-close]="true">Anuluj</button>
+</form>
